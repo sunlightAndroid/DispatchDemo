@@ -6,7 +6,7 @@
   3. 当手指在屏幕的下半屏滑动的饿时候，各自区域的recyclerView单独滑动
 
 #### 先看下 效果图:
-![GcsSloop Blog](https://raw.githubusercontent.com/ge1944633835/DispatchDemo/master/shotscreen/shotScreen.gif)
+![案例gif图片](https://raw.githubusercontent.com/ge1944633835/DispatchDemo/master/shotscreen/shotScreen.gif)
 
 
 ### 代码说明：
@@ -62,7 +62,7 @@ public class MyLinearlayout extends LinearLayout {
 ```
 ### 至于为什么要重写LinearLayout ，需要理解事件分发的原理：
 
-#### &#160; &#160;分发的原理是从上到下，响应的顺序是从下向上的，也就是说，当我们手指滑动屏幕的时候，Linearlayout 会比他根节点下的Recyclerview先获得到这个事件，so，我们需要在父类控件（LinearLayout）中去拦截这个事件，然后在onTouchEvent方法中去决定让哪个控件去消费这个事件
+#### &#160; &#160;&#160; &#160;分发的原理是从上到下，响应的顺序是从下向上的，也就是说，当我们手指滑动屏幕的时候，Linearlayout 会比他根节点下的Recyclerview先获得到这个事件，so，我们需要在父类控件（LinearLayout）中去拦截这个事件，然后在onTouchEvent方法中去决定让哪个控件去消费这个事件
  > 如果对事件分发原理还不是很了解的，这里推荐一篇博客跟你，说的很详细[事件分发原理详解](http://www.gcssloop.com/customview/dispatch-touchevent-theory)
 
 #### 注意事项：
