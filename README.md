@@ -5,6 +5,10 @@
   2. 当手指在屏幕的中间上半屏滑动的时候，3个recyclerView会一起滑动
   3. 当手指在屏幕的下半屏滑动的饿时候，各自区域的recyclerView单独滑动
 
+#### 先看下 效果图:
+
+
+
 ### 代码说明：
 #### 需要重写LinearLayout：
 
@@ -66,5 +70,39 @@ public class MyLinearlayout extends LinearLayout {
   2. 只有有子类的控件的ViewGroup才去重写onInterceptTouchEvent(),这里的LinearLayout就可以重写，一旦重写onInterceptTouchEvent()，将返回值设置为true，那么接下来就会执行onTouchEvent().
   3. 在onTouchEvent() 方法中 就可以根据手指的在屏幕的位置，来将事件分发给哪一个子view，具体写法参考上面的onTouchEvent()，需要注意的是，dispatchTouchEvent()一般是直接拿来使用的，而不去重写。比如说，想将事件分发给第一个子view，就可以这么写this.getChildAt(0).dispatchTouchEvent(event);
 
-#### 如果还不是很理解，请参考代码
+#### 之后在布局xml中引用就可以了:
+``` java
+<?xml version="1.0" encoding="utf-8"?>
+<com.gcg.dispatchexm.ui.view.MyLinearlayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rl"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rl2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rl3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </android.support.v7.widget.RecyclerView>
+</com.gcg.dispatchexm.ui.view.MyLinearlayout>
+
+```
+#### 如果还不是很理解，请参考demo
 

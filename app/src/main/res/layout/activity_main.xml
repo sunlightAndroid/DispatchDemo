@@ -12,7 +12,6 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
-
     </android.support.v7.widget.RecyclerView>
 
     <android.support.v7.widget.RecyclerView
@@ -20,7 +19,6 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
-
     </android.support.v7.widget.RecyclerView>
 
     <android.support.v7.widget.RecyclerView
@@ -28,6 +26,5 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
-
     </android.support.v7.widget.RecyclerView>
 </com.gcg.dispatchexm.ui.view.MyLinearlayout>
